@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "AI Note Clipper",
+  "version": "1.0.0",
+  "description": "在网页划选文本，通过右键菜单触发 AI 提炼核心 Q&A",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "notifications",
+    "storage",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["<all_urls>"],
+      "world": "MAIN"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
